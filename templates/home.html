@@ -1,3 +1,97 @@
-<h1>
-    Hello, World!
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            flex-direction: column;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Data Input Form</h2>
+        <form action="/predict" method="POST">
+            <label for="MedInc">Median Income</label>
+            <input type="number" step="any" id="MedInc" name="MedInc" placeholder="Enter Median Income" required>
+            
+            <label for="HouseAge">House Age</label>
+            <input type="number" step="any" id="HouseAge" name="HouseAge" placeholder="Enter House Age" required>
+            
+            <label for="AveRooms">Average Rooms</label>
+            <input type="number" step="any" id="AveRooms" name="AveRooms" placeholder="Enter Average Rooms" required>
+            
+            <label for="AveBedrms">Average Bedrooms</label>
+            <input type="number" step="any" id="AveBedrms" name="AveBedrms" placeholder="Enter Average Bedrooms" required>
+            
+            <label for="Population">Population</label>
+            <input type="number" step="any" id="Population" name="Population" placeholder="Enter Population" required>
+            
+            <label for="AveOccup">Average Occupancy</label>
+            <input type="number" step="any" id="AveOccup" name="AveOccup" placeholder="Enter Average Occupancy" required>
+            
+            <label for="Latitude">Latitude</label>
+            <input type="number" step="any" id="Latitude" name="Latitude" placeholder="Enter Latitude" required>
+            
+            <label for="Longitude">Longitude</label>
+            <input type="number" step="any" id="Longitude" name="Longitude" placeholder="Enter Longitude" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Prediction Result -->
+        {% if prediction_text %}
+        <div class="result">
+            <strong>{{ prediction_text }}</strong>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
